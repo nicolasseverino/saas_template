@@ -1,6 +1,5 @@
-import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon, GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { useTranslations } from 'next-intl';
-
 import { badgeVariants } from '@/components/ui/badgeVariants';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { CenteredHero } from '@/features/landing/CenteredHero';
@@ -19,14 +18,18 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterLogoIcon className="mr-1 size-5" />
+            <TwitterLogoIcon />
             {' '}
             {t('follow_twitter')}
           </a>
         )}
         title={t.rich('title', {
           important: chunks => (
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="
+              bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500
+              bg-clip-text text-transparent
+            "
+            >
               {chunks}
             </span>
           ),
@@ -35,18 +38,19 @@ export const Hero = () => {
         buttons={(
           <>
             <a
-              className={buttonVariants({ size: 'lg' })}
-              href="https://github.com/ixartz/SaaS-Boilerplate"
-            >
-              {t('primary_button')}
-            </a>
-
-            <a
               className={buttonVariants({ variant: 'outline', size: 'lg' })}
               href="https://github.com/ixartz/SaaS-Boilerplate"
             >
               <GitHubLogoIcon className="mr-2 size-5" />
               {t('secondary_button')}
+            </a>
+
+            <a
+              className={buttonVariants({ size: 'lg' })}
+              href="https://nextjs-boilerplate.com/nextjs-saas-starter-kit"
+            >
+              {t('primary_button')}
+              <ArrowRightIcon className="ml-1 size-5" />
             </a>
           </>
         )}
